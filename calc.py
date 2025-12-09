@@ -1,6 +1,7 @@
 # импорт модуля
 from tkinter import *
-import tkinter as ttk
+import tkinter as tk
+from tkinter import ttk # редактирование для большей читаемости
 
 # создание корневого окна
 window = Tk()
@@ -14,7 +15,20 @@ window.resizable(False, False)
 for c in range(4): window.columnconfigure(index=c, weight=1)
 for r in range(4): window.rowconfigure(index=r, weight=1)
 
-# прописывание характеристик кнопок чисел
+# получение введённого текста
+def show_message():
+    label["text"] = entry.get()
+
+entry = ttk.Entry()
+entry.grid(row=0, column=0, padx=6, pady=6)
+
+btn = ttk.Button(text="Click", command=show_message)
+btn.grid(row=0, column=1, padx=6, pady=6)
+
+label = ttk.Label()
+label.grid(row=0, column=2, padx=6, pady=6)
+
+# прописывание характеристик кнопок
 # числа
 btn1 = ttk.Button(text = "1", font=("Lucida Grange Regular", 20))
 btn1.grid(row=1, column=0, ipadx=15, ipady=40, padx=2, pady=2)
